@@ -1,0 +1,47 @@
+<nav class="navbar-container">
+    <div class="navbar-content">
+  
+      <div class="logo" (click)="scrollTo('hero')">
+        <span>Atul Sagar</span>
+      </div>
+  
+      <ul class="nav-links desktop-menu">
+        <li>
+          <a (click)="scrollTo('about')">About</a>
+        </li>
+  
+        <li>
+          <a (click)="scrollTo('skills')">Skills</a>
+        </li>
+  
+        <li>
+          <a (click)="scrollTo('experience')">Experience</a>
+        </li>
+  
+        <li>
+          <a (click)="scrollTo('projects')">Projects</a>
+        </li>
+  
+        <li>
+          <a (click)="scrollTo('contact')">Contact</a>
+        </li>
+      </ul>
+  
+      <button
+        class="menu-btn"
+        (click)="toggleMenu()">
+  
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  
+    @if(menuOpen) {
+      <div class="mobile-menu">
+        <a (click)="scrollTo('about')">About</a>
+        <a (click)="scrollTo('skills')">Skills</a>
+        <a (click)="scrollTo('experience')">Experience</a>
+        <a (click)="scrollTo('projects')">Projects</a>
+        <a (click)="scrollTo('contact')">Contact</a>
+      </div>
+    }
+  </nav>
