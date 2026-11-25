@@ -1,0 +1,144 @@
+.skills-section{
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+.section-header{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-tag{
+    display: inline-block;
+    color: #0ea5e9;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-header h2{
+    font-size: 2.8rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.section-header p{
+    max-width: 700px;
+    margin: auto;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+    gap: 2rem;
+}
+
+/* .skill-card{
+   background: white;
+   padding: 2rem;
+   border-radius: 20px;
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07); 
+   transition: all 0.3s ease;
+   
+} */
+
+
+.skill-card{
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+    transition: .3s ease;
+    border-radius: 0 0 16px 16px;
+}
+
+.skill-card::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+    background: #0ea5e9;
+    border-radius: 16px 16px 0 0;
+}
+
+
+.skill-title{
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.skill-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.skill-icon{
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e0f2fe;
+    margin-bottom: 1.5rem;
+}
+
+.skill-icon i {
+    font-size: 1.8rem;
+    color: #0284c7;
+}
+
+.skill-card h3{
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.skill-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill-list span{
+    background: #f1f5f9;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #334155;
+}
+
+.skill-list span:hover{
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+
+@media (max-width: 768px){
+    .section-header h2{
+        font-size: 2rem;
+    }
+
+    .skills-grid{
+        grid-template-columns: 1fr;
+    }
+}
