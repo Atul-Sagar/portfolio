@@ -17,225 +17,198 @@
                 and customer engagement applications delivered throughout my career.
             </p>
 
+
         </div>
 
         <div class="projects-grid">
 
-            <!-- SAATHI -->
-
-            <div class="project-card featured">
-
-                <div class="project-header">
-
-                    <h3>SAATHI</h3>
-
-                    <span class="project-badge">
-                        Application Owner
-                    </span>
-
-                </div>
-
-                <p>
-                    Enterprise application supporting insurance business
-                    operations. Responsible for end-to-end ownership,
-                    application lifecycle management, production support,
-                    releases, security reviews, and platform enhancements.
-                </p>
-
-                <div class="tech-stack">
-
-                    <span>.NET</span>
-                    <span>Angular</span>
-                    <span>REST APIs</span>
-                    <span>Fortify</span>
-
-                </div>
-
-            </div>
-
-            <!-- Vertex AI -->
+            @for(project of projects; track project.id){
 
             <div class="project-card">
 
-                <div class="project-header">
+                <div class="project-meta">
 
-                    <h3>Test Case Generator</h3>
+                    <h3>{{project.title}}</h3>
 
-                    <span class="project-badge">
-                        AI Initiative
-                    </span>
+                    <p class="project-role">
+                        {{project.role}}
+                    </p>
 
                 </div>
 
-                <p>
-                    AI-powered solution built using Google Vertex AI
-                    to automate test case generation, improve testing
-                    efficiency, and reduce manual effort.
+                <p class="project-summary">
+                    {{project.shortDescription}}
                 </p>
 
-                <div class="tech-stack">
+                <!-- <button
+                        class="view-details-btn"
+                        (click)="openProject(project)">
+            
+                        View Details
+            
+                    </button> -->
 
-                    <span>Vertex AI</span>
-                    <span>Prompt Engineering</span>
-                    <span>AI</span>
+                <button class="view-details-btn" (click)="openProject(project)">
 
-                </div>
+                    <span>View Details</span>
+
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </button>
 
             </div>
 
-            <!-- WhatsApp -->
-
-            <div class="project-card">
-
-                <div class="project-header">
-
-                    <h3>WhatsApp Business Integration</h3>
-
-                    <span class="project-badge">
-                        Customer Engagement
-                    </span>
-
-                </div>
-
-                <p>
-                    Integrated Gupshup WhatsApp Business platform for
-                    customer communication, template management,
-                    whitelisting, and automated campaign execution.
-                </p>
-
-                <div class="tech-stack">
-
-                    <span>Gupshup</span>
-                    <span>REST API</span>
-                    <span>WhatsApp Business</span>
-
-                </div>
-
-            </div>
-
-            <!-- Co Browsing -->
-
-            <div class="project-card">
-
-                <div class="project-header">
-
-                    <h3>Co-Browsing Solution</h3>
-
-                    <span class="project-badge">
-                        Real-Time Collaboration
-                    </span>
-
-                </div>
-
-                <p>
-                    Developed a real-time co-browsing platform enabling
-                    agents and customers to collaborate during
-                    digital interactions.
-                </p>
-
-                <div class="tech-stack">
-
-                    <span>Angular</span>
-                    <span>Node.js</span>
-                    <span>WebSockets</span>
-
-                </div>
-
-            </div>
-
-            <!-- Product Configurator -->
-
-            <div class="project-card">
-
-                <div class="project-header">
-
-                    <h3>Product Configurator</h3>
-
-                    <span class="project-badge">
-                        Architecture
-                    </span>
-
-                </div>
-
-                <p>
-                    Established the foundational architecture,
-                    application framework, and reusable modules
-                    for a configurable product management platform.
-                </p>
-
-                <div class="tech-stack">
-
-                    <span>Angular</span>
-                    <span>System Design</span>
-                    <span>Architecture</span>
-
-                </div>
-
-            </div>
-
-            <!-- MConnect -->
-
-            <div class="project-card">
-
-                <div class="project-header">
-
-                    <h3>MConnect PWA</h3>
-
-                    <span class="project-badge">
-                        Modernization
-                    </span>
-
-                </div>
-
-                <p>
-                    Migrated legacy application modules to Angular-based
-                    Progressive Web Applications as part of enterprise
-                    modernization initiatives.
-                </p>
-
-                <div class="tech-stack">
-
-                    <span>Angular</span>
-                    <span>PWA</span>
-                    <span>REST APIs</span>
-
-                </div>
-
-            </div>
-
-            <!-- CLIP -->
-
-            <div class="project-card">
-
-                <div class="project-header">
-
-                    <h3>CLIP PWA</h3>
-
-                    <span class="project-badge">
-                        Digital Transformation
-                    </span>
-
-                </div>
-
-                <p>
-                    Developed and enhanced Progressive Web Application
-                    features supporting insurance business workflows
-                    and digital operations.
-                </p>
-
-                <div class="tech-stack">
-
-                    <span>Angular</span>
-                    <span>PWA</span>
-                    <span>Enterprise Applications</span>
-
-                </div>
-
-            </div>
+            }
 
         </div>
 
     </div>
 
 </section>
-`
+
+
+@if(selectedProject){
+
+<div class="modal-overlay" (click)="closeProject()">
+
+    <div class="project-modal" (click)="$event.stopPropagation()">
+
+        <button class="close-modal" (click)="closeProject()">
+
+            ×
+
+        </button>
+
+        <h2>
+            {{selectedProject.title}}
+        </h2>
+
+        <p class="modal-subtitle">
+            {{selectedProject.role}}
+        </p>
+
+        <p>
+            {{selectedProject.overview}}
+        </p>
+
+        <!-- <h3>Responsibilities</h3>
+    
+            <ul>
+    
+                @for(item of selectedProject.responsibilities; track item){
+    
+                    <li>{{item}}</li>
+    
+                }
+    
+            </ul> -->
+
+        <section class="modal-section">
+
+            <div class="section-title">
+
+                <i class="bi bi-list-check"></i>
+
+                <h3>Responsibilities</h3>
+
+            </div>
+
+            <div class="bullet-grid">
+
+                @for(item of selectedProject.responsibilities; track item){
+
+                <div class="bullet-card">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>{{item}}</span>
+
+                </div>
+
+                }
+
+            </div>
+
+        </section>
+        <!--     
+            <h3>Technology Stack</h3>
+    
+            <div class="modal-tech">
+    
+                @for(skill of selectedProject.technologies; track skill){
+    
+                    <span>{{skill}}</span>
+    
+                }
+    
+            </div> -->
+
+
+        <section class="modal-section">
+
+            <div class="section-title">
+
+                <i class="bi bi-stack"></i>
+
+                <h3>Technology Stack</h3>
+
+            </div>
+
+            <div class="tech-stack">
+
+                @for(skill of selectedProject.technologies; track skill){
+
+                <span>{{skill}}</span>
+
+                }
+
+            </div>
+
+        </section>
+
+        <!-- <h3>Key Achievements</h3>
+    
+            <ul>
+    
+                @for(item of selectedProject.achievements; track item){
+    
+                    <li>{{item}}</li>
+    
+                }
+    
+            </ul> -->
+
+
+        <section class="modal-section">
+
+            <div class="section-title">
+
+                <i class="bi bi-trophy-fill"></i>
+
+                <h3>Key Achievements</h3>
+
+            </div>
+
+            <div class="achievement-list">
+
+                @for(item of selectedProject.achievements; track item){
+
+                <div class="achievement-item">
+
+                    <i class="bi bi-star-fill"></i>
+
+                    <span>{{item}}</span>
+
+                </div>
+
+                }
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+}
