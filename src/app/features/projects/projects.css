@@ -377,7 +377,7 @@
     margin-top: .5rem;
 }
 
-
+/* 
 .view-details-btn {
 
     margin-top: auto;
@@ -424,4 +424,45 @@
 .view-details-btn:hover i {
 
     transform: translateX(4px);
+} */
+
+
+.view-details-btn {
+
+    margin-top: auto;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .5rem;
+
+    background: transparent;
+
+    border: none;
+
+    padding: 0;
+
+    color: #0284c7;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.view-details-btn i {
+
+    transition: .25s ease;
+}
+
+.view-details-btn:hover {
+
+    color: #0369a1;
+}
+
+.view-details-btn:hover i {
+
+    transform: translateX(5px);
 }
